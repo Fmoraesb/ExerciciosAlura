@@ -43,31 +43,19 @@ public class TesteLambda {
         lista.add(cc3);
         lista.add(cc4);
         
-        lista.sort(new Comparator<Conta>() { // Isso se chama Classe Anônima! Já que eu não preciso de um Objeto.
-
-        	@Override
-        	public int compare(Conta conta1, Conta conta2) {
-
-        		return Integer.compare(conta1.getNumero(), conta2.getNumero());
-        	}
-        });
+        lista.sort((conta1, conta2) -> Integer.compare(conta1.getNumero(), conta2.getNumero()) );
+        //Utilizar as Lambdas facilitam a escrever códigos mais enxutos, mas é necessário já conhecer a sintaxe
+        //do mêtodo, para não parecer estranho.
         
-//        lista.sort(new Comparator<Conta>() { // Elas deixam o código mais enxuto também, apesar de deixar a legibilidade meio pobre.
-//
-//        	@Override
-//        	public int compare(Conta conta1, Conta conta2) {
-//        		
-//        		String nomeConta1 = conta1.getTitular().getNome();
-//        		String nomeConta2 = conta2.getTitular().getNome();
-//        		return nomeConta1.compareTo(nomeConta2);
-//        	}	
-//        }); 
+        Comparator<Conta> comp = (Conta conta1, Conta conta2) -> {
+        		
+        		String nomeConta1 = conta1.getTitular().getNome();
+        		String nomeConta2 = conta2.getTitular().getNome();
+        		return nomeConta1.compareTo(nomeConta2);	
+        }; 
+ 
         
-        System.out.println("Depois do Sort:");
-        
-        for (Conta conta : lista) {
-			System.out.println(conta + ", " + conta.getTitular().getNome() + ", Saldo: " + conta.getSaldo());
-		}
+        lista.forEach((conta) -> System.out.println(conta + ", " + conta.getTitular().getNome() + ", Saldo: " + conta.getSaldo()) );
 	}
 
 }
