@@ -14,20 +14,21 @@ public class TesteScanner {
 		
 		while (scanner.hasNextLine()) {
 			String linha = scanner.nextLine();
-			System.out.println(linha);
-			
 			Scanner linhaScanner = new Scanner(linha);
 			linhaScanner.useLocale(Locale.US);
 			linhaScanner.useDelimiter(",");
 			
-			String valor1 = linhaScanner.next();
-			int valor2 = linhaScanner.nextInt();
-			int valor3 = linhaScanner.nextInt();
-			String valor4 = linhaScanner.next();
-			double valor5 = linhaScanner.nextDouble();
-			System.out.println(valor1 + " " + valor2 + " " + valor3 + " " + valor4 + " " + valor5);
+			String tipoConta = linhaScanner.next();
+			int agencia = linhaScanner.nextInt();
+			int numeroConta = linhaScanner.nextInt();
+			String titular = linhaScanner.next();
+			double saldoConta = linhaScanner.nextDouble();
+			
+			System.out.format("%s - %04d-08%d %s : %08.2f %n", 
+					tipoConta, agencia, numeroConta, titular, saldoConta);
 			
 			linhaScanner.close();
+			
 			
 //			String[] valores = linha.split(","); // Essa "," serve como um caracter de definição do que deve ser usado como separador.
 //			System.out.println(Arrays.toString(valores));// Aqui, como o próprio método diz, ele pega a informação e transforma numa String, 
