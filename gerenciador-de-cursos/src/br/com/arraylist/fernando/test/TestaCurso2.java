@@ -1,10 +1,5 @@
 package br.com.arraylist.fernando.test;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-
 import br.com.arraylist.fernando.Aluno;
 import br.com.arraylist.fernando.Aula;
 import br.com.arraylist.fernando.Curso;
