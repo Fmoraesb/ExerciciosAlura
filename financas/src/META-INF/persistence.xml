@@ -11,7 +11,8 @@ http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		
 		<!-- Aqui são listadas todas as entidades -->
-		<class>br.com.fernandomoraes.financas.modelo</class>
+		<class>br.com.fernandomoraes.financas.modelo.Conta</class>
+		<class>br.com.fernandomoraes.financas.modelo.Movimentacao</class>
 		
 		<properties>
 		<!-- Propriedades JDBC -->
