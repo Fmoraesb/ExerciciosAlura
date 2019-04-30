@@ -2,12 +2,15 @@ package br.com.fernandomoraes.financas.modelo;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,10 +24,14 @@ public class Movimentacao {
 	
 	@ManyToOne
 	private Conta conta;
+	
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
-	private TipoMovimentacao tipo;
+	private TipoMovimentacao tipoDeMovimentacao;
+	
+	@ManyToMany
+	private List<Categoria> categoria;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar data;
@@ -53,12 +60,19 @@ public class Movimentacao {
 	}
 
 	public TipoMovimentacao getTipo() {
-		return tipo;
+		return tipoDeMovimentacao;
 	}
 	public void setTipoMovimentacao(TipoMovimentacao tipo) {
-		this.tipo = tipo;
+		this.tipoDeMovimentacao = tipo;
 	}
 
+	public List<Categoria> getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(List<Categoria> categoria) {
+		this.categoria = categoria;
+	}
+	
 	public Calendar getData() {
 		return data;
 	}
